@@ -5,6 +5,10 @@
 extern void _estack(void);  // to force type checking
 void Reset_Handler(void);
 
+void default_handler(void) {
+    while (1);
+}
+
 void __attribute__ ((weak)) __libc_init_array(void) { }
 
 // Linker supplied pointers
@@ -38,7 +42,7 @@ void Reset_Handler(void) {
     SystemInit();
     __libc_init_array();
     main();
-    while (1);
+    while (1) { }
 }
 
 /* Vector Table */
