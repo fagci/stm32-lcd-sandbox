@@ -5,7 +5,7 @@ int main(void) {
     LCD_init();
     usartInit();
 
-    u16 testColor = 0xACE0;
+    u16 testColor = RED;
 
     usartPrintLn("BEGIN");
     LCD_fillRect(0, 0, LCD_getWidth(), LCD_getHeight(), testColor);

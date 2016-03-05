@@ -1,8 +1,6 @@
 #ifndef TEST2_COLORS_H
 #define TEST2_COLORS_H
 
-// <editor-fold desc="Colors">
-
 #define BLACK           0x0000      /*   0,   0,   0 */
 #define NAVY            0x000F      /*   0,   0, 128 */
 #define DGREEN          0x03E0      /*   0, 128,   0 */
@@ -23,7 +21,5 @@
 #define GREENYELLOW     0xAFE5      /* 173, 255,  47 */
 #define BROWN                 0XBC40 //
 #define BRRED                 0XFC07 //
-
-// </editor-fold>
 
 #endif //TEST2_COLORS_H

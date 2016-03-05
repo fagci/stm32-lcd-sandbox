@@ -4,7 +4,7 @@
 //<editor-fold desc="RW Functions">
 
 __always_inline u16 LCD_spiRW16(u16 data) {
-    SPI_I2S_SendData(SPI_MASTER, data);
+    SPI_MASTER->DR = data;
     while (SPI_I2S_GetFlagStatus(SPI_MASTER, SPI_I2S_FLAG_TXE) == RESET); // wait while is not ready to tx
     while (SPI_I2S_GetFlagStatus(SPI_MASTER, SPI_I2S_FLAG_BSY) == SET);   // wait while tx line is busy
     if (SPI_I2S_GetFlagStatus(SPI_MASTER, SPI_I2S_FLAG_RXNE) == SET)
@@ -86,11 +86,15 @@ void LCD_pinsInit() {
 
 __always_inline void LCD_reset() {
     TFT_RST_SET;
-    delay_ms(10);
+    delay_ms(100);
     TFT_RST_RESET;
-    delay_ms(10);
+    delay_ms(100);
     TFT_RST_SET;
     delay_ms(150);
+    TFT_CS_RESET;
+    LCD_sendCommand8(LCD_SWRESET);
+    delay_ms(150);
+    TFT_CS_SET;
 }
 
 __always_inline void LCD_exitStandby() {
@@ -160,8 +164,8 @@ void LCD_configure() {
 void LCD_init() {
     LCD_pinsInit();
     LCD_reset();
-    LCD_exitStandby();
     LCD_configure();
+    LCD_exitStandby();
     TFT_LED_SET;
 }
 
