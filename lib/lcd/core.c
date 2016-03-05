@@ -70,7 +70,7 @@ void LCD_pinsInit() {
     GPIO_Init(SPI_MASTER_GPIO, &gpioStructure);
 
     gpioStructure.GPIO_Pin  = SPI_MASTER_PIN_MISO;
-    gpioStructure.GPIO_Mode = GPIO_Mode_IPD;
+    gpioStructure.GPIO_Mode = GPIO_Mode_AF_OD;
     GPIO_Init(SPI_MASTER_GPIO, &gpioStructure);
 
     SPI_StructInit(&spiStructure);

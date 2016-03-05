@@ -21,10 +21,12 @@ set(STARTUP ${STARTUP}
         ${PERIPH_LIB_SRC}/stm32f10x_rcc.c
         ${PERIPH_LIB_SRC}/stm32f10x_gpio.c
         ${PERIPH_LIB_SRC}/stm32f10x_spi.c
+        ${PERIPH_LIB_SRC}/stm32f10x_usart.c
         lib/delay.c
+        lib/tinystd/itoa.c
+        lib/usart/usart.c
         lib/lcd/core.c
         lib/lcd/graph.c
-        #        ${PERIPH_LIB_SRC}/stm32f10x_dma.c
         )
 
 set(DEBUG_FLAGS "-O9")
