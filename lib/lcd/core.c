@@ -1,3 +1,4 @@
+#include <stm32f10x_spi.h>
 #include "core.h"
 
 //<editor-fold desc="RW Functions">
@@ -70,14 +71,15 @@ void LCD_pinsInit() {
     GPIO_Init(SPI_MASTER_GPIO, &gpioStructure);
 
     gpioStructure.GPIO_Pin  = SPI_MASTER_PIN_MISO;
-    gpioStructure.GPIO_Mode = GPIO_Mode_AF_OD;
+    gpioStructure.GPIO_Mode = GPIO_Mode_IPU;
     GPIO_Init(SPI_MASTER_GPIO, &gpioStructure);
 
     SPI_StructInit(&spiStructure);
-    spiStructure.SPI_Mode = SPI_Mode_Master;
-    spiStructure.SPI_NSS  = SPI_NSS_Soft;
-    spiStructure.SPI_CPOL = SPI_CPOL_High;
-    spiStructure.SPI_CPHA = SPI_CPHA_2Edge;
+    spiStructure.SPI_Mode              = SPI_Mode_Master;
+    spiStructure.SPI_NSS               = SPI_NSS_Soft;
+    spiStructure.SPI_CPOL              = SPI_CPOL_High;
+    spiStructure.SPI_CPHA              = SPI_CPHA_2Edge;
+    spiStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_2;
     SPI_Init(SPI_MASTER, &spiStructure);
 
     SPI_SSOutputCmd(SPI_MASTER, ENABLE);

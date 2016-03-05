@@ -23,9 +23,9 @@
 #define LCD_DISPLAY_ON          0x29   /* Display on register */
 #define LCD_COLUMN_ADDR         0x2A   /* Colomn address register */
 #define LCD_PAGE_ADDR           0x2B   /* Page address register */
-#define LCD_GRAM                0x2C   /* GRAM register */
+#define LCD_RAMWRITE            0x2C   /* GRAM register */
 #define LCD_RGBSET              0x2D   /* Color SET */
-#define LCD_RAMRD               0x2E   /* Memory Read */
+#define LCD_RAMREAD             0x2E   /* Memory Read */
 #define LCD_PLTAR               0x30   /* Partial Area */
 #define LCD_VSCRDEF             0x33   /* Vertical Scrolling Definition */
 #define LCD_TEOFF               0x34   /* Tearing Effect Line OFF */
